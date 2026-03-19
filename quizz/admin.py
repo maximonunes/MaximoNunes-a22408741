@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Pergunta
+from .models import Quizz
 
 
 class PerguntaAdmin(admin.ModelAdmin):
@@ -8,5 +8,5 @@ class PerguntaAdmin(admin.ModelAdmin):
     search_fields = ("texto",)
 
 
-admin.site.register(Pergunta, PerguntaAdmin)
+admin.site.register(Quizz, PerguntaAdmin)
 # Register your models here.
