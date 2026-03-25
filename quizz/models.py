@@ -1,8 +1,23 @@
 from django.db import models
 
-class Quizz(models.Model):
-    texto = models.CharField(max_length=200)
+# Create your models here.
+class Genero(models.Model):
+    nome = models.CharField(max_length=30)
 
     def __str__(self):
-        return self.texto
+        return self.nome
+
+class Banda (models.Model):
+    nome = models.CharField(max_length=50)
+    genero = models.ForeignKey(Genero, on_delete=models.CASCADE, related_name='Género')
+
+    def __str__(self):
+        return self.nome
+
+class Festival(models.Model):
+    nome = models.CharField(max_length=30)
+    banda = models.ManyToManyField(Banda, related_name='Bandas')
+
+    def __str__(self):
+        return self.nome
 # Create your models here.
